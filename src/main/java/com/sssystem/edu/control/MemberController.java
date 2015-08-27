@@ -5,6 +5,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
 public class MemberController {
+	
+	@RequestMapping("asdsa")
+	public String lpggg(){
+		return "asdasd";
+	}
 
 	@RequestMapping("/member/login")
 	public String login(){
