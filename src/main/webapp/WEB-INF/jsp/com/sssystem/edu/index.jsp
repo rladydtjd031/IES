@@ -31,7 +31,7 @@ $(document).ready(function() {
 </head>
 <body>
 	<div id="wrap">
-		<jsp:include page="/include/header.jsp" />
+		<jsp:include page="/include/header" />
 		<div id="content">
 			<section id="cen">
 				<div id="top">
@@ -108,7 +108,7 @@ $(document).ready(function() {
 				</div>
 			</section>
 		</div>
-		<jsp:include page="/include/footer.jsp" />
+		<jsp:include page="/include/footer" />
 	</div>
 	
 </body>

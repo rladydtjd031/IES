@@ -23,24 +23,21 @@ public class MemberServiceImpl implements MemberService{
 	}
 
 	@Override
-	public boolean selectLogin(String id, String pass) {//로그인
-		int t = session.insert("member.login", id);
-		if(t == 1) return true;
-		return false;
+	public String selectLogin(String id) {//로그인
+		String pw = session.selectOne("member.login", id);
+		return pw;
 	}
 
 	@Override
-	public boolean selectEmp(String user_nm, String emp_serial) {
-		int t = session.selectOne("member.selectEmp", emp_serial);
-		if(t == 1) return true;
-		return false;
+	public String selectEmp(String user_nm, String emp_serial) {
+		String result = session.selectOne("member.selectEmp", emp_serial);
+		return result;
 	}//회원가입전 이름, 사원번호 확인
 
 	@Override
-	public boolean selectEmp1(String user_nm, String emp_serial) {
-		int t = session.selectOne("member.selectEmp1", emp_serial);
-		if(t == 1) return true;
-		return false;
+	public String selectEmp1(String user_nm, String emp_serial) {
+		String user_name = session.selectOne("member.selectEmp1", emp_serial);
+		return user_name;
 	}
 
 	@Override
@@ -72,16 +69,15 @@ public class MemberServiceImpl implements MemberService{
 	}
 
 	@Override
-	public boolean selectEmp2(HashMap<String, String> map) {
-		int t = session.selectOne("member.selectEmp2", map);
-		if(t == 1) return true;
-		return false;
+	public String selectEmp2(HashMap<String, String> map) {
+		String user_nm = session.selectOne("member.selectEmp2", map);
+		return user_nm;
 	}
 
 	@Override
 	public MemberVO select(int user_no) {
-		// TODO Auto-generated method stub
-		return null;
+		MemberVO member = session.selectOne("member.select", user_no);
+		return member;
 	}
 
 	@Override

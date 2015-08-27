@@ -4,6 +4,7 @@ import java.util.Date;
 
 public class MemberVO {
   private int user_no;
+  private String user_pwd;
   private String user_nm;
   private String emp_serial;
   private Date birth_dt;
@@ -28,7 +29,7 @@ public class MemberVO {
   public MemberVO() {
   }
 
-  public MemberVO(int user_no, String user_nm, String emp_serial,
+  public MemberVO(int user_no,String user_pwd, String user_nm, String emp_serial,
       Date birth_dt, String gender_yn, int dept_no, String dept_nm,
       int job_no, String job_nm, String user_id, String line_no,
       String phone_no, String second_no, String post, String address,
@@ -57,6 +58,14 @@ public class MemberVO {
     this.hiredate = hiredate;
     this.input_dt = input_dt;
   }
+  
+  public String getUser_pwd() {
+	    return user_nm;
+	  }
+
+	  public void setUser_pwd(String user_pwd) {
+	    this.user_nm = user_nm;
+	  }
 
   public int getUser_no() {
     return user_no;

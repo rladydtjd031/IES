@@ -18,7 +18,7 @@
 		 WHERE USER_NO = #{user_no}
 	</select>
 	
-	<select id="session" parameterType="String" resultType="session">
+	<select id="session" parameterType="String" resultType="sessionVO">
 		<![CDATA[
 		SELECT USER_NO
 		     , USER_NM
@@ -51,7 +51,7 @@
 		SELECT USER_NM
 		  FROM T_EDU_USER
 		 WHERE EMP_SERIAL = #{emp_serial}
-		   AND USER_ID = #user_id#
+		   AND USER_ID = #{user_id}
 		]]>
 	</select>
 	<select id="selectDept" parameterType="java.util.HashMap" resultType="java.util.HashMap">
@@ -84,7 +84,7 @@
 		   AND (USER_ID IS NULL OR USER_ID = '')
 		]]>
 	</select>
-	<select id="select" parameterType="int" resultType="member">
+	<select id="select" parameterType="int" resultType="adminMemberVO">
 		<![CDATA[
 		SELECT USER_NO
 		     , EMP_SERIAL
@@ -117,7 +117,7 @@
 		 WHERE USER_ID = #{user_id}
 		]]>		 
 	</select>
-	<update id="join" parameterType="member">
+	<update id="join" parameterType="adminMemberVO">
 		<![CDATA[
 		UPDATE T_EDU_USER SET
 		       USER_ID = #{user_id}

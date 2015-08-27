@@ -10,14 +10,14 @@ import com.sssystem.edu.vo.support.SessionVO;
 public interface MemberService {
 
 	public boolean updateJoin(MemberVO member);
-	public boolean selectLogin(String id, String pass);
-	public boolean selectEmp(String user_nm, String emp_serial);
-	public boolean selectEmp1(String user_nm, String emp_serial);
+	public String selectLogin(String id);
+	public String selectEmp(String user_nm, String emp_serial);
+	public String selectEmp1(String user_nm, String emp_serial);
 	public boolean findId(String name, String empno);
 	public SessionVO selectSession(String id);
 	public HashMap<String, Object> selectDept(HashMap<String, String> map);
 	public HashMap<String, Object> selectDept1(HashMap<String, String> map);
-	public boolean selectEmp2(HashMap<String, String> map);
+	public String selectEmp2(HashMap<String, String> map);
 	public MemberVO select(int user_no);
 	public MemberVO select2(int user_no);
 	public int selectID(String id);

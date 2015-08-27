@@ -5,7 +5,7 @@
 <head>
 	<meta charset="utf-8">
 	<title>사내교육시스템 - 아이디찾기</title>
-	<link rel="stylesheet" type="text/css" href="search.css">
+	<link rel="stylesheet" type="text/css" href="${initParam.root }/css/search.css">
 </head>
 <body>
 <div id="wrap">
@@ -20,7 +20,7 @@
 			<ul class="search_id">
 				<li class="li_con">${member.email }</li>
 			</ul>
-			<a class="link" href="login.do">이메일로 임시 비밀번호 전송하기</a>
+			<a class="link" href="login">이메일로 임시 비밀번호 전송하기</a>
 		</div>
 	</div>
 </div>

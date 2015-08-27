@@ -17,10 +17,10 @@
 <script type="text/javascript" src="/iessvn/js/ajax.js"></script>
 <script type="text/javascript" src="/iessvn/js/common.js"></script>
 <script type="text/javascript" src="/iessvn/js/formcheck.js"></script>
-<link rel="stylesheet" type="text/css" href="join.css">
-<html:messages id="msg" property="errors">
+<link rel="stylesheet" type="text/css" href="${initParam.root }/css/join.css">
+<!-- <html:messages id="msg" property="errors">
 <script type="text/javascript">alert('<bean:write name="msg" />');</script>
-</html:messages>
+</html:messages> -->
 </head>
 <body>
 <div id="wrap">
@@ -32,7 +32,7 @@
 	<div id="container">
 		<!-- content -->	
 		<div id="content">
-			<form id="frmjoin" name="frmjoin" target="_top" AUTOCOMPLETE="off" novalidate action="joinAction.do" method="post" onsubmit="return joinFormCheck(this);">
+			<form id="frmjoin" name="frmjoin" target="_top" AUTOCOMPLETE="off" novalidate action="joinAction" method="post" onsubmit="return joinFormCheck(this);">
 			<input type="hidden" name="user_no" value="${member.user_no }" required />
 			<input type="hidden" name="idDup" id="idDup" required />
 			<input type="hidden" name="pwdChk" value="false" required />
@@ -46,7 +46,7 @@
 					<div class="join_row" id="idDiv">
 						<input type="text" class="int" placeholder="아이디" maxlength="18" value="" name="user_id" id="id" required>
 						
-						<!-- class:error e_info, error, error gm -->
+						<!-- class:error e_info, error, error gm  -->
 						<div class="error" id="idMsg">6~18자리의 영문/숫자 조합</div>
 					</div>				
 					<div class="join_row" id="pswd1Div">
