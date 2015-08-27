@@ -11,5 +11,6 @@
 	<bean id="BoardService" class="com.sssystem.edu.service.impl.BoardServiceImpl"/>
 	<bean id="chk" class="com.sssystem.edu.common.ValidateParamChk"/>
 	<bean id="adminMemberService" class="com.sssystem.edu.admin.service.impl.AdminMemberServiceImpl"/>
+	<bean id="memberService" class="com.sssystem.edu.service.impl.MemberServiceImpl"/>
 	
 </beans>

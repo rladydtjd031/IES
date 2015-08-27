@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+ "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="member">
+
+<select id="login" parameterType="String" resultType="String">
+		<![CDATA[
+		SELECT USER_PWD
+		  FROM T_EDU_USER
+		 WHERE USER_ID = #{user_id}
+		]]>
+	</select>
+	
+	<select id="logSession" parameterType="int" resultType="String">
+		SELECT COUNT (*)
+		  FROM T_EDU_USER_LOG
+		 WHERE USER_NO = #{user_no}
+	</select>
+	
+	<select id="session" parameterType="String" resultType="session">
+		<![CDATA[
+		SELECT USER_NO
+		     , USER_NM
+		     , MANAGE_YN
+		     , JOB_NO
+		     , DEPT_NO
+		     , ADMIN_YN
+		  FROM T_EDU_USER
+		 WHERE USER_ID = #{user_id}
+		]]>
+	</select>
+	<select id="selectEmp" parameterType="String" resultType="String">
+		<![CDATA[
+		SELECT USER_NM
+		  FROM T_EDU_USER
+		 WHERE EMP_SERIAL = #{emp_serial}
+		   AND (USER_ID IS NULL OR USER_ID = '')
+		]]>
+	</select>
+		<select id="selectEmp1" parameterType="String" resultType="String">
+		<![CDATA[
+		SELECT USER_NM
+		  FROM T_EDU_USER
+		 WHERE EMP_SERIAL = #{emp_serial}
+		   AND (USER_ID IS NOT NULL OR USER_ID <> '')
+		]]>
+	</select>
+			<select id="selectEmp2" parameterType="java.util.HashMap" resultType="String">
+		<![CDATA[
+		SELECT USER_NM
+		  FROM T_EDU_USER
+		 WHERE EMP_SERIAL = #{emp_serial}
+		   AND USER_ID = #user_id#
+		]]>
+	</select>
+	<select id="selectDept" parameterType="java.util.HashMap" resultType="java.util.HashMap">
+		<![CDATA[
+		SELECT A.USER_NO
+		     , B.DEPT_NM
+		     , C.JOB_NM
+		     , A.USER_ID
+		     , A.USER_PWD
+		  FROM T_EDU_USER A
+		  	   LEFT OUTER JOIN T_EDU_DEPT B ON (A.DEPT_NO = B.DEPT_NO)
+		  	   LEFT OUTER JOIN T_EDU_JOB C ON (A.JOB_NO = C.JOB_NO) 
+		 WHERE A.USER_NM = #{user_nm}
+		   AND A.EMP_SERIAL = #{emp_serial}
+		   AND A.USER_NO IS NOT NULL
+		]]>
+	</select>
+		<select id="selectDept1" parameterType="java.util.HashMap" resultType="java.util.HashMap">
+		<![CDATA[
+		SELECT A.USER_NO
+		     , B.DEPT_NM
+		     , C.JOB_NM
+		     , A.USER_ID
+		     , A.USER_PWD
+		  FROM T_EDU_USER A
+		  	   LEFT OUTER JOIN T_EDU_DEPT B ON (A.DEPT_NO = B.DEPT_NO)
+		  	   LEFT OUTER JOIN T_EDU_JOB C ON (A.JOB_NO = C.JOB_NO) 
+		 WHERE USER_NM = #{user_nm}
+		   AND EMP_SERIAL = #{emp_serial}
+		   AND (USER_ID IS NULL OR USER_ID = '')
+		]]>
+	</select>
+	<select id="select" parameterType="int" resultType="member">
+		<![CDATA[
+		SELECT USER_NO
+		     , EMP_SERIAL
+		     , USER_ID
+		     , USER_PWD
+		     , USER_NM
+		     , LINE_NO
+		     , PHONE_NO
+		     , SECOND_NO
+		     , BIRTH_DT
+		     , POST
+		     , ADDRESS
+		     , EMAIL
+		     , GENDER_YN
+		     , JOB_NO
+		     , DEPT_NO
+		     , HIREDATE
+		     , INPUT_DT
+		     , TIME_STAMP
+		     , ADMIN_YN
+		     , MANAGE_YN
+		  FROM T_EDU_USER
+		 WHERE USER_NO = #{user_no}
+		]]>
+	</select>
+	<select id="selectID" parameterType="String" resultType="int">
+		<![CDATA[	
+		SELECT COUNT(*) CNT
+		  FROM T_EDU_USER
+		 WHERE USER_ID = #{user_id}
+		]]>		 
+	</select>
+	<update id="join" parameterType="member">
+		<![CDATA[
+		UPDATE T_EDU_USER SET
+		       USER_ID = #{user_id}
+		     , USER_PWD = #{user_pwd}
+		     , LINE_NO = #{line_no}
+		     , PHONE_NO = #{phone_no}
+		     , SECOND_NO = #{second_no}
+		     , POST = #{post}
+		     , ADDRESS = #{address}
+		     , EMAIL = #{email}
+		     , INPUT_DT = SYSDATE
+		     , TIME_STAMP = SYSDATE
+		 WHERE USER_NO = #{user_no}
+		]]>
+	</update>
+
+	<select id="findId" parameterType="java.lang.String"
+		resultType="java.lang.String">
+		select EMP_SERIAL from t_edu_user where USER_NM= #{USER_NM}
+	</select>
+	
+	<insert id="insertLog" parameterType="int">
+	<![CDATA[
+	    INSERT INTO T_EDU_USER_LOG
+	    	(LOG_NO, USER_NO, GUBUN, TIME_STAMP)
+	    VALUES
+	    	(SEQ_EDU_USER_LOG.nextval, #{user_no), 'O', SYSDATE)
+	]]>
+	</insert>
+
+	<select id="selectWrite" parameterType="int" resultType="String">
+		SELECT B.CNT_BOARD + C.CNT_QNA
+  			FROM T_EDU_USER A
+       			LEFT OUTER JOIN (
+                      SELECT COUNT(*) CNT_BOARD
+                           , USER_NO
+                        FROM T_EDU_BOARD
+                      GROUP BY USER_NO) B ON (A.USER_NO = B.USER_NO)
+     			LEFT OUTER JOIN (
+                      SELECT COUNT(*) CNT_QNA
+                          , Q_USER_NO AS USER_NO
+                        FROM T_EDU_QNA
+                       GROUP BY Q_USER_NO) C ON (A.USER_NO = C.USER_NO)
+				WHERE A.USER_NO = #{user_no}
+	</select>
+	
+	<select id="selectQuestion" parameterType="int" resultType="String">
+		SELECT COUNT (*)
+		FROM T_EDU_QNA
+		WHERE Q_USER_NO = #{q_user_no}
+	</select>
+	
+	<select id="myWriteView" parameterType="int" resultType="String">
+		SELECT TITLE FROM (
+		SELECT TITLE
+ 		FROM T_EDU_QNA
+ 		WHERE Q_USER_NO = #{q_user_no}
+ 		ORDER BY QUESTION_DT DESC)
+ 	 	WHERE ROWNUM BETWEEN 1 AND 6
+	</select>
+	
+		<select id="myQuestionView" parameterType="int" resultType="String">
+		SELECT TITLE FROM (
+ 		SELECT TITLE
+ 		FROM T_EDU_BOARD
+ 		WHERE USER_NO = #{user_no}
+ 		ORDER BY INPUT_DT DESC)
+ 		WHERE ROWNUM BETWEEN 1 AND 6
+	</select>
+
+</mapper>

@@ -9,7 +9,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
-<link rel="stylesheet" type="text/css" href="learn.css" />
+<link rel="stylesheet" type="text/css" href="${initParam.root }/Learn/qna.css" />
 <title>Insert title here</title>
 <script type="text/javascript">
 	window.onload=function(){
@@ -46,9 +46,9 @@
 </head>
 <body> 
 	<div id="wrap">
-		<jsp:include page="/include/header.jsp" />
+		<jsp:include page="/include/header" />
 		<div id="content">
-			<jsp:include page="/include/left_menu_learn.jsp" />
+			<jsp:include page="/include/left_menu_learn" />
 			<section id="cen">
 			
 						<!-------------------------------------검색------------------------------------------------------------------>

@@ -1,7 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
 	pageEncoding="EUC-KR"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<%@ taglib uri="http://struts.apache.org/tags-logic" prefix="logic" %>
 <logic:notPresent scope="session" name="user">
 <%-- <c:redirect url="/member/login.do" ></c:redirect> --%>
 </logic:notPresent>
