@@ -1,5 +1,5 @@
 @CHARSET "EUC-KR";
-@IMPORT url("/iessvn/common.css");
+@IMPORT url("/IES/common.css");
 
 section { width:100%; margin:0 auto; }
 section #top { width:100%; height:205px; margin-top:10px; }

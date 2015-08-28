@@ -4,7 +4,7 @@
 <logic:notPresent scope="session" name="user">
 <%-- <c:redirect url="/member/login.do" ></c:redirect> --%>
 </logic:notPresent>
-<!DOCTYPE html>
+<!DOCTYPE html>	
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
@@ -18,7 +18,7 @@
 <script src='${initParam.root }/fullcalendar-2.3.2/fullcalendar.min.js'></script>
 <script type="text/javascript" src="${initParam.root }/js/fullcalendar.js"></script>
 
-<link rel="stylesheet" type="text/css" href="index.css" />
+<link rel="stylesheet" type="text/css" href="${initParam.root }/css/index.css" />
 <title>Insert title here</title>
 <script type="text/javascript">
 $(document).ready(function() {
@@ -38,7 +38,7 @@ $(document).ready(function() {
 					<div id="userInfo" class="left">
 					<dl>
 						<dt class="prfl_thmb">
-						<img src="/iessvn/images/iu.jpg" />
+						<img src="${initParam.root }/images/iu.jpg" />
 						<div class="mask"></div>
 						</dt>
 						<dd><em>${user.user_nm }</em> 님</dd>
@@ -52,7 +52,7 @@ $(document).ready(function() {
 					<p>댓글수<span>${reply }</span></p>
 					</div>
 					<div id="imgSection" class="right">
-						<img src="/iessvn/images/5.png" alt="공간절약" />
+						<img src="${initParam.root }/images/5.png" alt="공간절약" />
 					</div>
 				</div>
 				<div id="mid">
