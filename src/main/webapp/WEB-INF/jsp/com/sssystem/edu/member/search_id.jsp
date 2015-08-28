@@ -19,7 +19,7 @@ $(function(){
 <div id="wrap">
 	<!-- header -->
 	<div id="header">
-		<h1><a href="login.do" class="logo hid_txt" tabindex="1">사내교육시스템</a></h1>
+		<h1><a href="login" class="logo hid_txt" tabindex="1">사내교육시스템</a></h1>
 	</div>
 	<!-- container -->
 	<div id="container">

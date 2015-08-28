@@ -7,7 +7,7 @@
 <title>사내교육시스템 - 비밀번호 찾기</title>
 <script src= "//code.jquery.com/jquery-1.11.3.min.js" ></script>
 <script src= "//code.jquery.com/jquery-migrate-1.2.1.min.js" ></script>
-<script type="text/javascript" src="/iessvn/js/common.js"></script>
+<script type="text/javascript" src="/IES/js/common.js"></script>
 <link rel="stylesheet" type="text/css" href="${initParam.root }/css/join.css">
 <script type="text/javascript">
 $(function(){
@@ -19,7 +19,7 @@ $(function(){
 <div id="wrap">
 	<!-- header -->
 	<div id="header">
-		<h1><a href="login.do" class="logo hid_txt" tabindex="1">사내교육시스템</a></h1>
+		<h1><a href="login" class="logo hid_txt" tabindex="1">사내교육시스템</a></h1>
 	</div>
 	<!-- container -->
 	<div id="container">

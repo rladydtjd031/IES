@@ -2,6 +2,7 @@
     pageEncoding="EUC-KR"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
 <c:if test="${deptjob == null }">
 	<c:redirect url="/member/check.do"></c:redirect>
 </c:if>
@@ -13,20 +14,18 @@
 <script src= "//code.jquery.com/jquery-1.11.3.min.js" ></script>
 <script src= "//code.jquery.com/jquery-migrate-1.2.1.min.js" ></script>
 <script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
-<script type="text/javascript" src="/iessvn/js/postSearch.js"></script>
-<script type="text/javascript" src="/iessvn/js/ajax.js"></script>
-<script type="text/javascript" src="/iessvn/js/common.js"></script>
-<script type="text/javascript" src="/iessvn/js/formcheck.js"></script>
+<script type="text/javascript" src="/IES/js/postSearch.js"></script>
+<script type="text/javascript" src="/IES/js/ajax.js"></script>
+<script type="text/javascript" src="/IES/js/common.js"></script>
+<script type="text/javascript" src="/IES/js/formcheck.js"></script>
 <link rel="stylesheet" type="text/css" href="${initParam.root }/css/join.css">
-<!-- <html:messages id="msg" property="errors">
-<script type="text/javascript">alert('<bean:write name="msg" />');</script>
-</html:messages> -->
+
 </head>
 <body>
 <div id="wrap">
 	<!-- header -->
 	<div id="header">
-		<h1><a href="login.do" class="logo hid_txt" tabindex="1">사내교육시스템</a></h1>
+		<h1><a href="login" class="logo hid_txt" tabindex="1">사내교육시스템</a></h1>
 	</div>
 	<!-- container -->
 	<div id="container">
@@ -45,7 +44,6 @@
 				<div class="row_group">
 					<div class="join_row" id="idDiv">
 						<input type="text" class="int" placeholder="아이디" maxlength="18" value="" name="user_id" id="id" required>
-						
 						<!-- class:error e_info, error, error gm  -->
 						<div class="error" id="idMsg">6~18자리의 영문/숫자 조합</div>
 					</div>				

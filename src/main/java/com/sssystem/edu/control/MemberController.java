@@ -12,9 +12,6 @@ import com.sssystem.edu.admin.vo.MemberVO;
 import com.sssystem.edu.service.MemberService;
 import com.sssystem.edu.vo.support.SessionVO;
 
-
-
-
 @Controller
 public class MemberController{
 	
@@ -27,15 +24,19 @@ public class MemberController{
 	}
 	
 	@RequestMapping("member/loginAccess")
-	public String loginAccess(@RequestParam(value="id") String id,
-							  @RequestParam(value="pass") String pass, Model model){
+	public String loginAccess(@RequestParam(value="id",required=false) String id,
+							  @RequestParam(value="pass",required=false) String pass, Model model){
+		
+		if(memberService.selectLogin(id)==null) return "member/login";
+		
 		if(memberService.selectLogin(id).equals(pass)){
 		SessionVO sessionVO = memberService.selectSession(id);
+		System.out.println(sessionVO);
 		model.addAttribute("user", sessionVO);
 		return "index";
 		}
 		else {
-			return "redirect:login";
+			return "member/login";
 		}
 	}//loginAccess
 	
@@ -45,8 +46,11 @@ public class MemberController{
 	}//joinCheck
 	
 	@RequestMapping("/member/joinAccess")
-	public String joinAccess(@RequestParam(value="user_nm") String user_nm,
-			  				 @RequestParam(value="emp_serial") String emp_serial, Model model){
+	public String joinAccess(@RequestParam(value="user_nm",required=false) String user_nm,
+			  				 @RequestParam(value="emp_serial",required=false) String emp_serial, Model model){
+		
+		if(memberService.selectEmp(user_nm, emp_serial)==null) return "/member/join_check";
+		
 		if(memberService.selectEmp(user_nm, emp_serial).equals(user_nm)){
 			HashMap<String, String> map = new HashMap<String, String>();
 			map.put("user_nm", user_nm);
@@ -60,7 +64,7 @@ public class MemberController{
 			
 			return "member/join";
 		}
-		else return "redirect:join_check";
+		else return "join_check";
 	}//joinAccess
 	
 	@RequestMapping("member/joinAction")
@@ -86,6 +90,7 @@ public class MemberController{
 		memberVO.setAddress(address);
 		memberVO.setEmail(email);
 		
+		
 		if(memberService.updateJoin(memberVO)){
 		
 			return "member/login";
@@ -103,8 +108,11 @@ public class MemberController{
 	
 	
 	@RequestMapping("/member/findIdCheckAccess")
-	public String findIdCheckAccess(@RequestParam(value="user_nm") String user_nm,
-							  	    @RequestParam(value="emp_serial") String emp_serial, Model model){
+	public String findIdCheckAccess(@RequestParam(value="user_nm",required=false) String user_nm,
+							  	    @RequestParam(value="emp_serial",required=false) String emp_serial, Model model){
+		
+		if(memberService.selectEmp1(user_nm, emp_serial)==null) return "/member/search_id";
+		
 		if(memberService.selectEmp1(user_nm, emp_serial).equals(user_nm)){
 			HashMap<String, String> map = new HashMap<String, String>();
 			map.put("user_nm", user_nm);
@@ -128,22 +136,25 @@ public class MemberController{
 	}//findPasswordCheck
 	
 	@RequestMapping("/member/findPasswordAccess")
-	public String findPassword(@RequestParam(value="user_id") String user_id,
-							   @RequestParam(value="user_nm") String user_nm,
-	  	    				   @RequestParam(value="emp_serial") String emp_serial, Model model){
+	public String findPassword(@RequestParam(value="user_id",required=false) String user_id,
+							   @RequestParam(value="user_nm",required=false) String user_nm,
+	  	    				   @RequestParam(value="emp_serial",required=false) String emp_serial, Model model){
 		HashMap<String, String> map = new HashMap<String, String>();
 		map.put("user_id", user_id);
 		map.put("user_nm", user_nm);
 		map.put("emp_serial", emp_serial);
 		
+		if(memberService.selectEmp2(map)==null) return "/member/search_pass";
+		
 		if(memberService.selectEmp2(map).equals(user_nm)){
+			
 			HashMap<String, Object> deptjob = memberService.selectDept(map);
 		int user_no = Integer.valueOf(String.valueOf(deptjob.get("USER_NO")));
 		MemberVO memverVO = memberService.select(user_no);
 		model.addAttribute("member", memverVO);
 		return "member/search_pass_ok";
 		}
-		else return "redirect:search_pass";
+		else return "redirect:findPasswordCheck";
 	}//findPassword
 	
 }

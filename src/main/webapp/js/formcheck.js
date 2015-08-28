@@ -3,80 +3,80 @@
  */
 function joinFormCheck(f) {
 	if (f.user_id.value == "") {
-		alert("¾ÆÀÌµð¸¦ ÀÔ·ÂÇØ ÁÖ¼¼¿ä!");
+		alert("ï¿½ï¿½ï¿½Ìµï¿½ ï¿½Ô·ï¿½ï¿½ï¿½ ï¿½Ö¼ï¿½ï¿½ï¿½!");
 		f.user_id.focus();
 		return false;
 	}
 	if (f.idDup.value != f.user_id.value) {
-		alert("»ç¿ëÇÒ ¼ö ¾ø´Â ¾ÆÀÌµð ÀÔ´Ï´Ù!")
+		alert("ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ìµï¿½ ï¿½Ô´Ï´ï¿½!")
 		f.user_id.select();
 		f.user_id.focus();
 		return false;
 	}
 	if (f.user_pwd.value == ""){
-		alert("ºñ¹Ð¹øÈ£¸¦ ÀÔ·ÂÇØ ÁÖ¼¼¿ä!");
+		alert("ï¿½ï¿½Ð¹ï¿½È£ï¿½ï¿½ ï¿½Ô·ï¿½ï¿½ï¿½ ï¿½Ö¼ï¿½ï¿½ï¿½!");
 		f.user_pwd.focus();
 		return false;
 	}
 	if (f.pwdChk.value == "false"){
-		alert("»ç¿ëÇÒ ¼ö ¾ø´Â ºñ¹Ð¹øÈ£ ÀÔ´Ï´Ù!");
+		alert("ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ð¹ï¿½È£ ï¿½Ô´Ï´ï¿½!");
 		f.user_pwd.select();
 		f.user_pwd.focus();
 		return false;
 	}
 	if (f.user_pwd.value != f.user_pwd2.value){
-		alert("ºñ¹Ð¹øÈ£°¡ ÀÏÄ¡ÇÏÁö ¾Ê½À´Ï´Ù!");
+		alert("ï¿½ï¿½Ð¹ï¿½È£ï¿½ï¿½ ï¿½ï¿½Ä¡ï¿½ï¿½ï¿½ï¿½ ï¿½Ê½ï¿½ï¿½Ï´ï¿½!");
 		f.user_pwd2.select();
 		f.user_pwd2.focus();
 		return false;
 	}
 	if (f.line_no1.value == ""){
-		alert("³»¼±¹øÈ£¸¦ ÀÔ·ÂÇØ ÁÖ¼¼¿ä!");
+		alert("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È£ï¿½ï¿½ ï¿½Ô·ï¿½ï¿½ï¿½ ï¿½Ö¼ï¿½ï¿½ï¿½!");
 		f.line_no1.focus();
 		return false;
 	}
 	if (f.line_no2.value == ""){
-		alert("³»¼±¹øÈ£¸¦ ÀÔ·ÂÇØ ÁÖ¼¼¿ä!");
+		alert("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È£ï¿½ï¿½ ï¿½Ô·ï¿½ï¿½ï¿½ ï¿½Ö¼ï¿½ï¿½ï¿½!");
 		f.line_no2.focus();
 		return false;
 	}
 	if (f.line_no3.value == ""){
-		alert("³»¼±¹øÈ£¸¦ ÀÔ·ÂÇØ ÁÖ¼¼¿ä!");
+		alert("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È£ï¿½ï¿½ ï¿½Ô·ï¿½ï¿½ï¿½ ï¿½Ö¼ï¿½ï¿½ï¿½!");
 		f.line_no3.focus();
 		return false;
 	}
 	if (f.phone_no1.value == ""){
-		alert("ÈÞ´ëÆù¹øÈ£¸¦ ÀÔ·ÂÇØ ÁÖ¼¼¿ä!");
+		alert("ï¿½Þ´ï¿½ï¿½ï¿½ï¿½ï¿½È£ï¿½ï¿½ ï¿½Ô·ï¿½ï¿½ï¿½ ï¿½Ö¼ï¿½ï¿½ï¿½!");
 		f.phone_no1.focus();
 		return false;
 	}
 	if (f.phone_no2.value == ""){
-		alert("ÈÞ´ëÆù¹øÈ£¸¦ ÀÔ·ÂÇØ ÁÖ¼¼¿ä!");
+		alert("ï¿½Þ´ï¿½ï¿½ï¿½ï¿½ï¿½È£ï¿½ï¿½ ï¿½Ô·ï¿½ï¿½ï¿½ ï¿½Ö¼ï¿½ï¿½ï¿½!");
 		f.phone_no2.focus();
 		return false;
 	}
 	if (f.phone_no3.value == "") {
-		alert("ÈÞ´ëÆù¹øÈ£¸¦ ÀÔ·ÂÇØ ÁÖ¼¼¿ä!");
+		alert("ï¿½Þ´ï¿½ï¿½ï¿½ï¿½ï¿½È£ï¿½ï¿½ ï¿½Ô·ï¿½ï¿½ï¿½ ï¿½Ö¼ï¿½ï¿½ï¿½!");
 		f.phone_no3.focus();
 		return false;
 	}
 	if (f.post.value == ""){
-		alert("¿ìÆí¹øÈ£ Ã£±â¸¦ ÅëÇØ ÁÖ¼Ò¸¦ ÀÔ·ÂÇØ ÁÖ¼¼¿ä!");
+		alert("ï¿½ï¿½ï¿½ï¿½ï¿½È£ Ã£ï¿½â¸¦ ï¿½ï¿½ï¿½ï¿½ ï¿½Ö¼Ò¸ï¿½ ï¿½Ô·ï¿½ï¿½ï¿½ ï¿½Ö¼ï¿½ï¿½ï¿½!");
 		f.post.focus();
 		return false;
 	}
 	if (f.address.value == ""){
-		alert("¿ìÆí¹øÈ£ Ã£±â¸¦ ÅëÇØ ÁÖ¼Ò¸¦ ÀÔ·ÂÇØ ÁÖ¼¼¿ä!");
+		alert("ï¿½ï¿½ï¿½ï¿½ï¿½È£ Ã£ï¿½â¸¦ ï¿½ï¿½ï¿½ï¿½ ï¿½Ö¼Ò¸ï¿½ ï¿½Ô·ï¿½ï¿½ï¿½ ï¿½Ö¼ï¿½ï¿½ï¿½!");
 		f.address.focus();
 		return false;
 	}
 	if (f.email1.value == ""){
-		alert("ÀÌ¸ÞÀÏÀ» ÀÔ·ÂÇØ ÁÖ¼¼¿ä!");
+		alert("ï¿½Ì¸ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ô·ï¿½ï¿½ï¿½ ï¿½Ö¼ï¿½ï¿½ï¿½!");
 		f.email1.focus();
 		return false;
 	}
 	if (f.email2.value == ""){
-		alert("ÀÌ¸ÞÀÏÀ» ÀÔ·ÂÇØ ÁÖ¼¼¿ä!");
+		alert("ï¿½Ì¸ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ô·ï¿½ï¿½ï¿½ ï¿½Ö¼ï¿½ï¿½ï¿½!");
 		f.email2.focus();
 		return false;
 	}
@@ -84,7 +84,7 @@ function joinFormCheck(f) {
 }
 function idCheck(val) {
 	var params = "id="+ val;
-	new ajax.xhr.Request("/iessvn/member/idCheck.do", params, idCheckResult, "POST");
+	new ajax.xhr.Request("/IES/member/idCheck", params, idCheckResult, "POST");
 }
 function idCheckResult(xhr){
 	if (xhr.readyState == 4 && xhr.status == 200) {
@@ -113,7 +113,7 @@ $(function(){
 			idCheck(val);
 		}else{
 			var idresult = new IDResult();
-			idresult.no("6~18ÀÚ¸®ÀÇ ¿µ¹®/¼ýÀÚ Á¶ÇÕ");
+			idresult.no("6~18ï¿½Ú¸ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½/ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½");
 		}
 	});
 	var pwdRegx = /^[a-z0-9_]{6,18}$/;
@@ -124,7 +124,7 @@ $(function(){
 			$("#pswd1Msg").hide();
 		} else {
 			document.frmjoin.pwdChk.value = "false";
-			$("#pswd1Msg").text("6~18ÀÚ¸®ÀÇ ¿µ¹®/¼ýÀÚ Á¶ÇÕ");
+			$("#pswd1Msg").text("6~18ï¿½Ú¸ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½/ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½");
 			$("#pswd1Msg").show();
 		}
 	})
