@@ -42,7 +42,7 @@ $(document).ready(function() {
 						<div class="mask"></div>
 						</dt>
 						<dd><em>${user.user_nm }</em> 님</dd>
-						<dd>회원정보수정 | <a href="/iessvn/member/login.do" onclick="return confirm('로그아웃 하시겠습니까?');">로그아웃</a></dd>
+						<dd>회원정보수정 | <a href="${initParam.root }/member/login" onclick="return confirm('로그아웃 하시겠습니까?');">로그아웃</a></dd>
 					</dl>
 					<p>출석수<span>${log }</span></p>
 					<p>교육이수<span></span></p>
